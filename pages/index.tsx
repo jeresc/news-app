@@ -10,7 +10,7 @@ export default function Home({ articles }) {
         <h3>hey there!</h3>
         {articles.length === 0 && <p>No articles...</p>}
         {articles.length > 0 &&
-          articles.map((article) => (
+          articles.map((article, index) => (
             <article key={article.url}>
               <h2>{article.title}</h2>
               <Image
@@ -18,6 +18,8 @@ export default function Home({ articles }) {
                 alt={`Image for the article ${article.title}`}
                 width={600}
                 height={300}
+                layout="responsive"
+                priority={index < 2}
               />
               <p>{article.description}</p>
               <a href={article.url}>Read more</a>
