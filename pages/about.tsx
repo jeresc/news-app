@@ -1,7 +1,7 @@
 import { PageLayout } from '@/layouts'
 import React from 'react'
 
-function AboutPage() {
+export default function AboutPage() {
   return (
     <PageLayout title="About - NewsApp">
       <div>
@@ -10,5 +10,3 @@ function AboutPage() {
     </PageLayout>
   )
 }
-
-export default AboutPage
