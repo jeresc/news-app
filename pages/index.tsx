@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import { PageLayout } from '@/layouts'
-import { useEffect, useState } from 'react'
+import { IAPIResponse } from '@/interfaces/IApiResponse'
 
-export default function Home({ articles }) {
+export default function Home({ articles }: IAPIResponse) {
   return (
     <PageLayout title="Home - NewsApp">
       <main className="grid content-start h-screen px-8">
@@ -32,7 +32,7 @@ export default function Home({ articles }) {
 
 // N requests -> executes 1 time on build time / page reload
 export async function getStaticProps() {
-  const { articles } = await fetch(
+  const { articles }: IAPIResponse = await fetch(
     `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${process.env.NEWS_API_KEY}`
   ).then((response) => response.json())
   return {
